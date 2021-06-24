@@ -30,11 +30,14 @@ function Homepage({ children }) {
         </div>
         <AppBar position="static">
           <Toolbar>
-            <Button color="inherit" className="logo-box" onClick={() => history.push('/')}>
+            <Button
+              color={pathname === '/' ? 'primary' : 'inherit'}
+              className="logo-box"
+              onClick={() => history.push('/')}
+            >
               <svg x="0px" y="0px" viewBox="0 0 300 300" className="logo">
                 <g id="g10" transform="matrix(1.1963147,0,0,1.1963147,-491.75634,-55.420115)">
                   <path
-                    fill="#ffffff"
                     d="m 590.5,138.8 c -26.8,-18 -49,3.1 -53.8,5.9 -4.8,-2.8 -27.1,-23.9 -53.8,-5.9 -33.8,22.8 -47.7,19.9 -70.5,-10.2 0,0 -6.1,98.4 93.3,81.2 14.8,-2.6 29.1,-16.4 31,-29.9 1.9,13.5 16.2,27.3 31,29.9 99.4,17.1 93.3,-81.2 93.3,-81.2 -22.8,30.2 -36.7,33 -70.5,10.2 z"
                     id="path8"
                   />

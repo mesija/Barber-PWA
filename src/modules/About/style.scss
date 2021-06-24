@@ -23,6 +23,7 @@
         list-style: none;
         display: block;
         text-align: center;
+        color: #1A535C;
       }
 
       .icon {
@@ -32,11 +33,10 @@
         height: 10rem;
         display: flex;
         flex-flow: column;
-        justify-content: flex-end;
+        justify-content: center;
 
-        img {
-          max-width: 4rem;
-          height: 10rem;
+        svg {
+          fill: #1A535C;
         }
       }
     }

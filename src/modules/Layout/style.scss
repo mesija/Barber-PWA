@@ -115,8 +115,16 @@
 #root .MuiAppBar-colorPrimary {
   background-color: #1A535C;
 
+  svg {
+    fill: white;
+  }
+
   .MuiButton-textPrimary {
     color: #ffb1b1;
+
+    svg {
+      fill: #ffb1b1;
+    }
   }
 
   .MuiToolbar-root {
