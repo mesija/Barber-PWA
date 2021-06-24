@@ -1,0 +1,64 @@
+.page-container.about {
+  .description-box {
+    margin: 2rem 0;
+    position: relative;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-gap: 2rem;
+    align-content: space-around;
+    justify-content: center;
+
+    .description {
+      text-align: justify;
+      text-indent: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .icons {
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        width: 25%;
+        list-style: none;
+        display: block;
+        text-align: center;
+      }
+
+      .icon {
+        width: 50%;
+        margin: 0 25%;
+        text-align: center;
+        height: 10rem;
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-end;
+
+        img {
+          max-width: 4rem;
+          height: 10rem;
+        }
+      }
+    }
+
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      bottom: -1.25rem;
+      left: calc(50% - 5rem);
+      width: 10rem;
+      border-bottom: 2px solid #1A535C;
+    }
+
+    &:after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      bottom: -2rem;
+      left: calc(50% - 2rem);
+      width: 4rem;
+      border-bottom: 2px solid #1A535C;
+    }
+  }
+}

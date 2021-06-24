@@ -3,7 +3,7 @@ import React from 'react';
 function SVG() {
   return (
     <svg version="1.1" id="svg2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 480.9 572.9">
-      <g id="g8" transform="matrix(1.3333333,0,0,-1.3333333,0,666.66667)" fill="#FF5C5C">
+      <g id="g8" transform="matrix(1.3333333,0,0,-1.3333333,0,666.66667)" fill="#FF4747">
         <g id="g12">
           <g>
             <g id="g14">
@@ -2805,7 +2805,7 @@ function SVG() {
           </g>
         </g>
       </g>
-      <g fill="#FF5C5C">
+      <g fill="#FF4747">
         <path
           className="st0"
           d="M88,280.2c0.1-1.2,14.4-8,19.7-9.3c7.8-2,12-1.7,15.4,1.1c3.4,2.7,3.6,9,0.7,13.5c-1,1.5-2.2,2.8-2.7,3.1
@@ -2910,7 +2910,7 @@ function SVG() {
 		L379.5,280.4z"
         />
       </g>
-      <g fill="#FF5C5C">
+      <g fill="#FF4747">
         <path
           className="st0"
           d="M196.6,302.8c-0.1,0-0.2-0.1-0.3-0.2c-0.1-0.1-0.2-0.2-0.3-0.4s-0.2-0.3-0.2-0.4c-0.1-0.1-0.1-0.3-0.1-0.3

@@ -13,6 +13,9 @@ import conf from './conf';
 import reducer from './reducer';
 import Error404 from './modules/Error404';
 import Layout from './modules/Layout';
+import Contacts from './modules/Contacts';
+import Services from './modules/Services';
+import Barbers from './modules/Barbers';
 
 const composeThunk = conf.isProduction ? applyMiddleware(thunk) : composeWithDevTools(applyMiddleware(thunk));
 conf.store = createStore(reducer, composeThunk);
@@ -26,6 +29,9 @@ ReactDOM.render(
             <Layout>
               <Switch location={props.location}>
                 <Route key="index" exact path="/" component={App} />
+                <Route key="contacts" exact path="/contacts" component={Contacts} />
+                <Route key="services" exact path="/services" component={Services} />
+                <Route key="barbers" exact path="/barbers" component={Barbers} />
                 <Route key="404" component={Error404} />
               </Switch>
             </Layout>

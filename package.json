@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build & deploy": "sh build.sh"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
