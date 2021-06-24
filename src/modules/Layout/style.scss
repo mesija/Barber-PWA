@@ -42,6 +42,15 @@
     color: #FF4747;
     font-family: 'Yanone Kaffeesatz', sans-serif;
 
+    a {
+      color: #1A535C;
+      text-decoration: none;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+
     .title {
       margin-top: 7rem;
       position: relative;

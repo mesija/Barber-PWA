@@ -18,11 +18,15 @@ function Homepage({ children }) {
             <div className="title">Можливо найвусатіший барбер в світі!</div>
             <div className="info">
               <div className="address">
-                <LocationOn /> ВУЛ. ШАШКЕВИЧА, 3
+                <a href="https://goo.gl/maps/pebvNxVD4oS51EMdA" target="_blank" rel="noreferrer">
+                  <LocationOn /> ВУЛ. ШАШКЕВИЧА, 3
+                </a>
               </div>
               <div className="city">м. Тернопіль</div>
               <div className="tell">
-                <Call /> (098) 083-73-76
+                <a href="tel:+380980837376">
+                  <Call /> (098) 083-73-76
+                </a>
               </div>
               <div className="hours">Щодня 10:00 - 21:00</div>
             </div>
@@ -78,9 +82,9 @@ function Homepage({ children }) {
       </Container>
       <footer>
         <Container maxWidth="lg">
-          <div className="copy">Вусатий барбер &copy; 2021 - Усі права захищені.</div>
+          <div className="copy">Вусатий барбер &copy; 2021 - Дипломний проект Рудавського Романа.</div>
           <div className="captcha">
-            This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+            Уся інформація на сайті не відповідає дійсності і розміщена виключно в навчальних цілях.
           </div>
         </Container>
       </footer>
