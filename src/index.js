@@ -17,6 +17,7 @@ import Contacts from './modules/Contacts';
 import Services from './modules/Services';
 import Barbers from './modules/Barbers';
 import Booking from './modules/Booking';
+import 'moment/locale/uk';
 
 const composeThunk = conf.isProduction ? applyMiddleware(thunk) : composeWithDevTools(applyMiddleware(thunk));
 conf.store = createStore(reducer, composeThunk);

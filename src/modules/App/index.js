@@ -5,8 +5,11 @@ import Barbers from '../Barbers';
 import About from '../About';
 import conf from '../../conf';
 import { Helmet } from 'react-helmet';
+import { Button } from '@material-ui/core';
+import { useHistory } from 'react-router';
 
 function Homepage() {
+  const history = useHistory();
   return (
     <div className="home-box">
       <Helmet>
@@ -15,6 +18,11 @@ function Homepage() {
       <About asModule={true} />
       <Services asModule={true} />
       <Barbers asModule={true} />
+      <div style={{ textAlign: 'center', color: '#FF4747' }}>
+        <Button variant="outlined" color="inherit" onClick={() => history.push('/booking')}>
+          ОНЛАЙН ЗАПИС
+        </Button>
+      </div>
     </div>
   );
 }
