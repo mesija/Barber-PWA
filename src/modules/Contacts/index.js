@@ -1,10 +1,15 @@
 import React from 'react';
 import './style.scss';
 import { Email } from '@material-ui/icons';
+import conf from '../../conf';
+import { Helmet } from 'react-helmet';
 
 function Contacts() {
   return (
     <div className="page-container contact">
+      <Helmet>
+        <title>{`Контакти | ${conf.name}`}</title>
+      </Helmet>
       <h1>Контакти</h1>
       <h2 className="email">
         <a href="mailto:contact@barber.mesija.net" target="_blank" rel="noreferrer">

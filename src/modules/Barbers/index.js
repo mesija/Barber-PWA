@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import './style.scss';
-import axios from 'axios';
 import _ from 'lodash';
 import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { magicGetter } from '../../actions';
+import { Helmet } from 'react-helmet';
+import conf from '../../conf';
 
-function Barbers() {
+function Barbers({ asModule }) {
   const [barbers, setBarbers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get('https://api.barber.mesija.net/rest/barber');
-      setBarbers(data);
+      setBarbers(await magicGetter('https://api.barber.mesija.net/rest/barber'));
       setLoading(false);
     })();
   }, []);
@@ -20,6 +21,11 @@ function Barbers() {
 
   return (
     <div className="page-container barbers">
+      {!asModule && (
+        <Helmet>
+          <title>{`Майстри | ${conf.name}`}</title>
+        </Helmet>
+      )}
       <h1>Майстри</h1>
       <div className="list">
         {_.map(_.sortBy(barbers, 'name'), ({ id, name, photo }) => {

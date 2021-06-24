@@ -16,6 +16,7 @@ import Layout from './modules/Layout';
 import Contacts from './modules/Contacts';
 import Services from './modules/Services';
 import Barbers from './modules/Barbers';
+import Booking from './modules/Booking';
 
 const composeThunk = conf.isProduction ? applyMiddleware(thunk) : composeWithDevTools(applyMiddleware(thunk));
 conf.store = createStore(reducer, composeThunk);
@@ -32,6 +33,7 @@ ReactDOM.render(
                 <Route key="contacts" exact path="/contacts" component={Contacts} />
                 <Route key="services" exact path="/services" component={Services} />
                 <Route key="barbers" exact path="/barbers" component={Barbers} />
+                <Route key="booking" exact path="/booking" component={Booking} />
                 <Route key="404" component={Error404} />
               </Switch>
             </Layout>

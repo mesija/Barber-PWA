@@ -108,7 +108,7 @@
 }
 
 #root > .MuiContainer-root {
-  min-height: 100vh;
+  min-height: calc(100vh + 30rem);
   padding: 0 0 10rem 0;
 }
 

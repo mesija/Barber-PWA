@@ -1,0 +1,32 @@
+.page-container.error404 {
+  .description {
+    margin: 2rem 0;
+    position: relative;
+    text-align: center;
+
+    .go-to-home .MuiButtonBase-root {
+      color: #1A535C;
+      border-color: #1A535C;
+    }
+
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      bottom: -1.25rem;
+      left: calc(50% - 5rem);
+      width: 10rem;
+      border-bottom: 2px solid #1A535C;
+    }
+
+    &:after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      bottom: -2rem;
+      left: calc(50% - 2rem);
+      width: 4rem;
+      border-bottom: 2px solid #1A535C;
+    }
+  }
+}
