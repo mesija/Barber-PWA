@@ -6,6 +6,7 @@ import { magicGetter } from '../../actions';
 import _ from 'lodash';
 import isMobilePhone from 'validator/lib/isMobilePhone';
 import {
+  Avatar,
   Button,
   Card,
   CardActions,
@@ -20,8 +21,10 @@ import {
 } from '@material-ui/core';
 import moment from 'moment';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Booking() {
+  const dispatch = useDispatch();
   const [services, setServices] = useState([]);
   const [barbers, setBarbers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -30,6 +33,12 @@ function Booking() {
   const [barber, setBarber] = useState();
   const [service, setService] = useState(0);
   const [error, setError] = useState();
+  const [lastAwaiter, setLastAwaiter] = useState(false);
+
+  const { awaiter } = useSelector((state) => ({ awaiter: state.app.awaiter }));
+
+  const setToast = (value) => dispatch({ type: 'APP_SET_TOAST', value });
+  const setAwaiter = (value) => dispatch({ type: 'APP_SET_AWAITER', value });
 
   useEffect(() => {
     (async () => {
@@ -39,24 +48,53 @@ function Booking() {
     })();
   }, []);
 
+  useEffect(() => {
+    (async () => {
+      if (!awaiter && lastAwaiter) setBarbers(await magicGetter('https://api.barber.mesija.net/rest/barber'));
+      setLastAwaiter(awaiter);
+    })();
+  }, [awaiter]);
+
   if (loading) return null;
 
   const handleSubmit = async () => {
-    if (!isMobilePhone(number, 'uk-UA')) return setError('Не вірний телефон');
+    if (!isMobilePhone(number, 'uk-UA')) return setError('Невірний телефон');
     setError(undefined);
     const data = new FormData();
     data.append('phoneNumber', number);
     data.append('serviceId', String(service));
     data.append('date', formDate);
     data.append('barberId', String(barber));
-    await axios({
-      method: 'POST',
-      url: 'https://api.barber.mesija.net/rest/booking',
-      data: data,
-      headers: { 'Content-Type': 'multipart/form-data' },
-    });
-    setBarbers(await magicGetter('https://api.barber.mesija.net/rest/barber'));
+    try {
+      await axios({
+        method: 'POST',
+        url: 'https://api.barber.mesija.net/rest/booking',
+        data: data,
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      setBarbers(await magicGetter('https://api.barber.mesija.net/rest/barber'));
+      setToast({
+        severity: 'success',
+        content: 'Успішно заброньовано',
+      });
+    } catch (e) {
+      localStorage.setItem(
+        'lazyInsert',
+        JSON.stringify({
+          phoneNumber: number,
+          serviceId: String(service),
+          date: formDate,
+          barberId: String(barber),
+        }),
+      );
+      setToast({
+        severity: 'info',
+        content: 'Ми запишемо вас в чергу як тільки зявиться інтернет',
+      });
+      setAwaiter(true);
+    }
     setBarber(0);
+    setNumber('');
   };
 
   return (
@@ -107,7 +145,9 @@ function Booking() {
               <div className={barber === id ? 'form-modal active' : 'form-modal'}>
                 {barber === id && (
                   <div className="box">
-                    <h2>{name}</h2>
+                    <h2>
+                      <Avatar alt={name} src={photo} /> {name}
+                    </h2>
                     <div className="forms">
                       <FormControl variant="filled">
                         <InputLabel id="demo-simple-select-outlined-label">Час</InputLabel>

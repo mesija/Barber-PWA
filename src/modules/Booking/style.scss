@@ -63,6 +63,12 @@
         flex-direction: row;
         align-items: center;
 
+        h2 {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+        }
+
         &.active {
           opacity: 1;
           height: 100%;

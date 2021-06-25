@@ -4,8 +4,7 @@ export const magicGetter = async (url) => {
   let result;
   const { pathname } = new URL(url);
   try {
-    const res = await axios.get(url);
-    result = res.data;
+    result = (await axios.get(url)).data;
     localStorage.setItem(pathname, JSON.stringify(result));
   } catch (e) {
     result = JSON.parse(localStorage.getItem(pathname));

@@ -1,13 +1,55 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './style.scss';
-import { AppBar, Button, Container, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Button, Container, Snackbar, Toolbar, Typography } from '@material-ui/core';
 import BannerImage from './HomeBanner';
 import { LocationOn, Call } from '@material-ui/icons';
 import { useHistory, useLocation } from 'react-router';
+import { Alert } from '@material-ui/lab';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 
 function Homepage({ children }) {
+  const dispatch = useDispatch();
   const history = useHistory();
   const { pathname } = useLocation();
+
+  const { toast, status, awaiter } = useSelector((state) => ({
+    toast: state.app.toast,
+    status: state.app.status,
+    awaiter: state.app.awaiter,
+  }));
+  const setToast = (value) => dispatch({ type: 'APP_SET_TOAST', value });
+  const setAwaiter = (value) => dispatch({ type: 'APP_SET_AWAITER', value });
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') return;
+    setToast(false);
+  };
+
+  useEffect(() => {
+    (async () => {
+      if (status && awaiter) {
+        try {
+          const data = new FormData();
+          _.forEach(JSON.parse(localStorage.getItem('lazyInsert')), (value, key) => {
+            data.append(key, value);
+          });
+          await axios({
+            method: 'POST',
+            url: 'https://api.barber.mesija.net/rest/booking',
+            data: data,
+            headers: { 'Content-Type': 'multipart/form-data' },
+          });
+          setToast({
+            severity: 'success',
+            content: 'Успішно заброньовано',
+          });
+          setAwaiter(false);
+          localStorage.removeItem('lazyInsert');
+        } catch (e) {}
+      }
+    })();
+  }, [status]);
 
   return (
     <>
@@ -88,6 +130,12 @@ function Homepage({ children }) {
           </div>
         </Container>
       </footer>
+      <Snackbar open={!!toast} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} elevation={6} variant="filled" severity={toast?.severity}>
+          {toast?.content}
+        </Alert>
+      </Snackbar>
+      <div className={awaiter ? 'awaiter active' : 'awaiter'}>Запис в черзі. Очікуємо на підключення.</div>
     </>
   );
 }

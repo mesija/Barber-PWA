@@ -22,6 +22,14 @@ import 'moment/locale/uk';
 const composeThunk = conf.isProduction ? applyMiddleware(thunk) : composeWithDevTools(applyMiddleware(thunk));
 conf.store = createStore(reducer, composeThunk);
 
+window.addEventListener('offline', () => {
+  conf.store.dispatch({ type: 'APP_SET_STATUS', value: false });
+});
+
+window.addEventListener('online', () => {
+  conf.store.dispatch({ type: 'APP_SET_STATUS', value: true });
+});
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={conf.store}>
