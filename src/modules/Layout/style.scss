@@ -214,6 +214,77 @@ footer {
   }
 }
 
+@media screen and (max-width: 600px) {
+  #root .MuiAppBar-colorPrimary {
+    .MuiToolbar-root {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+
+      .right-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-evenly;
+        padding: 1rem 0;
+
+
+        & > * {
+          width: 40%;
+        }
+      }
+    }
+  }
+
+  .home-banner {
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .big-logo {
+      width: 70%;
+    }
+
+    .right {
+      padding: 1rem;
+      margin: 0;
+
+      .title {
+        margin-top: 1rem;
+        position: relative;
+        margin-bottom: 2.5rem;
+        font-size: 2.5em;
+        font-weight: 400;
+      }
+    }
+  }
+
+  footer {
+    background-color: #123A40;
+    color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 6.5rem;
+
+    .MuiContainer-root {
+      text-align: center;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      grid-gap: .3rem;
+      opacity: .7;
+
+      .captcha {
+        font-size: .7em;
+      }
+    }
+  }
+}
+
 ::-webkit-scrollbar {
   height: 1.5rem;
   width: .6rem;

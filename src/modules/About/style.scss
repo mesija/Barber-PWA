@@ -17,6 +17,8 @@
     .icons {
       display: flex;
       flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
 
       li {
         width: 25%;
@@ -59,6 +61,44 @@
       left: calc(50% - 2rem);
       width: 4rem;
       border-bottom: 2px solid #1A535C;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page-container.about {
+    .description-box {
+
+      .description {
+        padding: 0 1rem;
+      }
+
+      .icons {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+          width: 50%;
+          list-style: none;
+          display: block;
+          text-align: center;
+          color: #1A535C;
+        }
+
+        .icon {
+          width: 50%;
+          margin: 0 25%;
+          text-align: center;
+          height: 10rem;
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+
+          svg {
+            fill: #1A535C;
+          }
+        }
+      }
     }
   }
 }

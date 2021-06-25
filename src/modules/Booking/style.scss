@@ -119,3 +119,21 @@
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .page-container.booking {
+    .list {
+      margin: 2rem 0;
+      position: relative;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 1rem;
+
+      .MuiCard-root {
+        width: 100%;
+      }
+    }
+  }
+}

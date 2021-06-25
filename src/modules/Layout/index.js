@@ -70,7 +70,7 @@ function Homepage({ children }) {
                   <Call /> (098) 083-73-76
                 </a>
               </div>
-              <div className="hours">Щодня 10:00 - 21:00</div>
+              <div className="hours">Щодня 10:00 - 19:00</div>
             </div>
           </div>
         </div>

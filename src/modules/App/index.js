@@ -18,7 +18,7 @@ function Homepage() {
       <About asModule={true} />
       <Services asModule={true} />
       <Barbers asModule={true} />
-      <div style={{ textAlign: 'center', color: '#FF4747' }}>
+      <div style={{ textAlign: 'center', color: '#ef2d2d' }}>
         <Button variant="outlined" color="inherit" onClick={() => history.push('/booking')}>
           ОНЛАЙН ЗАПИС
         </Button>

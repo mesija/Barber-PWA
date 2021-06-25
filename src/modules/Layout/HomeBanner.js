@@ -2,7 +2,15 @@ import React from 'react';
 
 function SVG() {
   return (
-    <svg version="1.1" id="svg2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 480.9 572.9">
+    <svg
+      className="big-logo"
+      version="1.1"
+      id="svg2"
+      xmlns="http://www.w3.org/2000/svg"
+      x="0px"
+      y="0px"
+      viewBox="0 0 480.9 572.9"
+    >
       <g id="g8" transform="matrix(1.3333333,0,0,-1.3333333,0,666.66667)" fill="#FF4747">
         <g id="g12">
           <g>
